@@ -74,6 +74,7 @@ def _run_hook(shell_cmd):
 
     :returns: stderr if there was any"""
 
+    logger.info("Running with close_fds=True")
     cmd = Popen(shell_cmd, shell=True, stdout=PIPE, stderr=PIPE, stdin=PIPE, close_fds=True)
     _out, err = cmd.communicate()
     if cmd.returncode != 0:
